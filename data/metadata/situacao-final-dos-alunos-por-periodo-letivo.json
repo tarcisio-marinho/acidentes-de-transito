@@ -1,0 +1,138 @@
+{
+	"metadados": {
+		"cabecalho": {
+			"titulo": "Situação final dos alunos por período letivo",
+			"descricao": "Situação acadêmica dos alunos da rede pública de ensino da cidade do Recife ao final de um ano letivo",
+			"categoria_vcge": "http://vocab.e.gov.br/2011/03/vcge#sistema-educacional-avaliacao",
+			"fonte_dados": "http://dados.recife.pe.gov.br",
+			"licenca": "Open Database License (ODbL)",
+			"responsavel_dados": "Secretaria de Educação",
+			"responsavel_disponibilizar": "Emprel",
+			"frequencia_atualizacao": "Anual",
+			"endereco_dataset": "http://dados.recife.pe.gov.br/dataset/situacao-final-dos-alunos-por-periodo-letivo",
+			"status": "ativo",
+			"endereco_dataset_substituto": "",
+			"granularidade": "Por ano letivo",
+			"etiquetas": "Alunos, Aprovação, Educação, Escolas"
+		},
+		"recursos": [
+			{ 
+				"identificador": "http://dados.recife.pe.gov.br/dataset/situacao-final-dos-alunos-por-periodo-letivo/resource/9a694ab5-99ab-4ff1-ac6b-c97917c6a762",
+				"titulo": "Resultado Final dos Alunos - 2011",
+				"formato": "csv",
+				"descricao": "Resultado final dos alunos da rede pública de ensino da cidade do Recife no ano 2011"
+			},
+			{ 
+				"identificador": "http://dados.recife.pe.gov.br/dataset/situacao-final-dos-alunos-por-periodo-letivo/resource/f6633c26-be36-4c27-81cb-e77d90316cff",
+				"titulo": "Resultado Final dos Alunos - 2012",
+				"formato": "csv",
+				"descricao": "Resultado final dos alunos da rede pública de ensino da cidade do Recife no ano 2012"
+			},
+			{ 
+				"identificador": "http://dados.recife.pe.gov.br/dataset/situacao-final-dos-alunos-por-periodo-letivo/resource/95eb9ea8-cd75-4efa-a1ba-ba869f4e92b9",
+				"titulo": "Resultado Final dos Alunos - 2013",
+				"formato": "csv",
+				"descricao": "Resultado final dos alunos da rede pública de ensino da cidade do Recife no ano 2013"
+			},
+			{ 
+				"identificador": "http://dados.recife.pe.gov.br/dataset/situacao-final-dos-alunos-por-periodo-letivo/resource/0a2aec2f-9634-4408-bbb4-37e1f9c74aa1",
+				"titulo": "Resultado Final dos Alunos - 2014",
+				"formato": "csv",
+				"descricao": "Resultado final dos alunos da rede pública de ensino da cidade do Recife no ano 2014"
+			}
+		],
+		"campos": [
+			{
+				"codigo": "ano",
+				"descricao": "Ano letivo",
+				"tipo": "Num",
+				"tamanho": 4,
+				"valores_permitidos": ""
+			},
+			{
+				"codigo": "escola",
+				"descricao": "Nome da Escola Municipal",
+				"tipo": "Char",
+				"tamanho": 100,
+				"valores_permitidos": ""
+			},
+			{
+				"codigo": "endereco_bairro",
+				"descricao": "Bairro",
+				"tipo": "Char",
+				"tamanho": 50,
+				"valores_permitidos": ""
+			},
+			{
+				"codigo": "endereco_logradouro",
+				"descricao": "Logradouro",
+				"tipo": "Char",
+				"tamanho": 80,
+				"valores_permitidos": ""
+			},
+			{
+				"codigo": "endereco_numero",
+				"descricao": "Número",
+				"tipo": "Char",
+				"tamanho": 10,
+				"valores_permitidos": ""
+			},
+			{
+				"codigo": "rpa",
+				"descricao": "Região Político Administrativa",
+				"tipo": "Num",
+				"tamanho": 1,
+				"valores_permitidos": ""
+			},
+			{
+				"codigo": "ano_ensino",
+				"descricao": "Ano de Ensino",
+				"tipo": "Char",
+				"tamanho": 30,
+				"valores_permitidos": ""
+			},
+			{
+				"codigo": "modalidade_ensino",
+				"descricao": "Modalidade de Ensino",
+				"tipo": "Char",
+				"tamanho": 50,
+				"valores_permitidos": ""
+			},
+			{
+				"codigo": "turma",
+				"descricao": "Turme",
+				"tipo": "Char",
+				"tamanho": 3,
+				"valores_permitidos": ""
+			},
+			{
+				"codigo": "turno",
+				"descricao": "Turno",
+				"tipo": "Char",
+				"tamanho": 15,
+				"valores_permitidos": ""
+			},
+			{
+				"codigo": "sequencial",
+				"descricao": "Sequencial",
+				"tipo": "Num",
+				"tamanho": 10,
+				"valores_permitidos": ""
+			},
+			{
+				"codigo": "situacao_codigo",
+				"descricao": "Código da Situação Final",
+				"tipo": "Char",
+				"tamanho": 2,
+				"valores_permitidos": ""
+			},
+			{
+				"codigo": "situacao_nome",
+				"descricao": "Descrição da Situação Final",
+				"tipo": "Char",
+				"tamanho": 30,
+				"valores_permitidos": ""
+			}
+		]
+	}
+}
