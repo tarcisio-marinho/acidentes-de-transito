@@ -31,7 +31,18 @@ def menu():
 
     search()
 
-def search(tipo="data", numero=10):
+
+
+
+def google_maps_search(latitude, longitude):
+    url = "https://www.google.com.br/maps/search/{0},+{1}?sa=X&ved=0ahUKEwj8wsmc--fYAhVJkZAKHToBCkgQ8gEIJzAA".format(latitude, longitude)
+    return url
+
+
+
+
+
+def search(desc, tipo="data", numero=10):
     if(not tipo):
         pass
 
@@ -44,6 +55,9 @@ def search(tipo="data", numero=10):
 
     elif(tipo == "local"):
         pass
+
+
+
 
 
 
@@ -80,8 +94,8 @@ if __name__ == "__main__":
     path = "data/acidentes-2016.csv"
     
     with open(path) as f:
+        f.readline() # ignore first line
         dados = f.read()
 
     por_data, por_tipo, por_qtd_feridos, por_local = get_data(dados)
-
     #menu()
