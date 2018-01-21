@@ -86,7 +86,32 @@ def reshape_data(data):
      "qtd_vitmas":""
      "veiculo":""}
     """
-    pass
+    itens = {}
+
+    if('"' in data):
+        descricao = data.split('"')
+        descricao[1] = descricao[1].replace(";", "")
+        itens["descricao"] = descricao[1]
+        new = "".join(descricao)
+        new = new.split(";")
+
+    else:
+        new = data.split(";")
+        itens["descricao"] = new[9]
+
+    itens["latitude"] = new[1]
+    itens["longitude"] = new[0]
+    itens["data"] = new[2]
+    itens["hora"] = new[3]
+    itens["bairro"] = new[4]
+    itens["endereco"] = new[5]
+    itens["complemento"] = new[6]
+    itens["ocorrencia"] = new[7]
+    if(new[8] == 'F' or new[8] == "f"):
+        itens["qtd_vitimas"] = 0
+    else:
+        itens["qtd_vitimas"] = new[8]    
+    itens["veiculo"] = new[10]
 
 
 def get_data(data):
@@ -100,37 +125,11 @@ def get_data(data):
     
     data = data.split("\n")
     data.remove("")
-    print(data)
+
     for line in data:
-        #todas_ocorrencias.append(reshape_data(line))
-        itens = {}
-    
-        if('"' in line):
-            descricao = line.split('"')
-            descricao[1] = descricao[1].replace(";", "")
-            itens["descricao"] = descricao[1]
-            new = "".join(descricao)
-            new = new.split(";")
-
-        else:
-            new = line.split(";")
-            itens["descricao"] = new[9]
-
-        itens["latitude"] = new[1]
-        itens["longitude"] = new[0]
-        itens["data"] = new[2]
-        itens["hora"] = new[3]
-        itens["bairro"] = new[4]
-        itens["endereco"] = new[5]
-        itens["complemento"] = new[6]
-        itens["ocorrencia"] = new[7]
-        if(new[8] == 'F' or new[8] == "f"):
-            itens["qtd_vitimas"] = 0
-        else:
-            itens["qtd_vitimas"] = new[8]    
-        itens["veiculo"] = new[10]
-        todas_ocorrencias.append(itens)
-        #print(itens)
+        todas_ocorrencias.append(reshape_data(line))
+        
+    print(todas_ocorrencias)
         
     
     return acidentes_por_data, acidentes_por_tipo, acidentes_por_quantidade_de_feridos, acidentes_por_local
