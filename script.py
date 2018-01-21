@@ -113,6 +113,8 @@ def reshape_data(data):
         itens["qtd_vitimas"] = new[8]    
     itens["veiculo"] = new[10]
 
+    return itens
+
 
 def get_data(data):
 
@@ -128,8 +130,6 @@ def get_data(data):
 
     for line in data:
         todas_ocorrencias.append(reshape_data(line))
-        
-    print(todas_ocorrencias)
         
     
     return acidentes_por_data, acidentes_por_tipo, acidentes_por_quantidade_de_feridos, acidentes_por_local
