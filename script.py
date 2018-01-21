@@ -71,19 +71,39 @@ def search(desc, tipo="data", numero=10):
 
 """
 
+# transform an occorrency data into a dict
+def reshape_data(data):
+    """
+    {"descricao":""
+     "latitude":""
+     "longitude":""
+     "data":""
+     "hora":""
+     "bairro":""
+     "endereco":""
+     "complemento":""
+     "ocorrencia":""
+     "qtd_vitmas":""
+     "veiculo":""}
+    """
+    pass
+
+
 def get_data(data):
 
     acidentes_por_data = {}
     acidentes_por_tipo = {}
     acidentes_por_quantidade_de_feridos = {}
     acidentes_por_local = {}
-
-
+    
+    todas_ocorrencias = []
+    
     data = data.split("\n")
+    
     for line in data:
+        #todas_ocorrencias.append(reshape_data(line))
         itens = {}
-
-
+    
         if('"' in line):
             descricao = line.split('"')
             descricao[1] = descricao[1].replace(";", "")
@@ -91,9 +111,7 @@ def get_data(data):
             new = "".join(descricao)
             new = new.split(";")
 
-
         else:
-            
             new = line.split(";")
             itens["descricao"] = new[9]
 
@@ -105,15 +123,17 @@ def get_data(data):
         itens["endereco"] = new[5]
         itens["complemento"] = new[6]
         itens["ocorrencia"] = new[7]
-        itens["qtd_vitimas"] = new[8]    
+        if(new[8] == 'F' or new[8] == "f"):
+            itens["qtd_vitimas"] = 0
+        else:
+            itens["qtd_vitimas"] = new[8]    
         itens["veiculo"] = new[10]
-        print(itens)
-
-
-        time.sleep(2)
+        todas_ocorrencias.append(itens)
         
-
-
+        print(itens)
+        time.sleep(0.5)
+        
+    
     return acidentes_por_data, acidentes_por_tipo, acidentes_por_quantidade_de_feridos, acidentes_por_local
 
 
