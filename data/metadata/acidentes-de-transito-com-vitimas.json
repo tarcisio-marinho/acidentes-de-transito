@@ -1,0 +1,107 @@
+{
+	"metadados": {
+		"cabecalho": {
+			"titulo": "Acidentes de Trânsito com Vítimas",
+			"descricao": "Dados dos acidentes com vítimas do trânsito de Recife, disponibilizados pela CTTU",
+			"categoria_vcge": "http://vocab.e.gov.br/2011/03/vcge#transportes-transito",
+			"fonte_dados": "http://dados.recife.pe.gov.br",
+			"licenca": "Open Database License (ODbL)",
+			"responsavel_dados": "CTTU",
+			"responsavel_disponibilizar": "Emprel",
+			"frequencia_atualizacao": "Mensal",
+			"endereco_dataset": "http://dados.recife.pe.gov.br/dataset/acidentes-de-transito-com-vitimas",
+			"status": "ativo",
+			"endereco_dataset_substituto": "",
+			"granularidade": "Por Ano",
+			"etiquetas": "acidente, acidentes, animal, bicicleta, caminhão, ciclista, cttu, mobilidade, taxi, transito, trânsito"
+		},
+		"recursos": [
+			{ 
+				"identificador": "http://dados.recife.pe.gov.br/dataset/acidentes-de-transito-com-vitimas-2015/resource/c6094991-6c24-4d80-9cf1-393b9ee68541",
+				"titulo": "Acidentes - 2015",
+				"formato": "csv",
+				"descricao": "Acidentes com Vítimas ocorridos no ano de 2015"
+			}
+		],
+		"campos": [
+			{
+				"codigo": "data_abertura",
+				"descricao": "Data do Acidente",
+				"tipo": "Date",
+				"tamanho": 10,
+				"valores_permitidos": ""
+			},
+			{
+				"codigo": "hora_abertura",
+				"descricao": "Hora do Acidente",
+				"tipo": "Char",
+				"tamanho": 5,
+				"valores_permitidos": ""
+			},
+			{
+				"codigo": "bairro",
+				"descricao": "Bairro do acidente",
+				"tipo": "Char",
+				"tamanho": 50,
+				"valores_permitidos": ""
+			},
+			{
+				"codigo": "endereco",
+				"descricao": "Endereço do acidente",
+				"tipo": "Char",
+				"tamanho": 50,
+				"valores_permitidos": ""
+			},
+			{
+				"codigo": "complemento",
+				"descricao": "Complemento do acidente",
+				"tipo": "Char",
+				"tamanho": 50,
+				"valores_permitidos": ""
+			},
+			{
+				"codigo": "tipo_ocorrencia",
+				"descricao": "Tipo de Ocorrencia",
+				"tipo": "Char",
+				"tamanho": 50,
+				"valores_permitidos": ""
+			},
+			{
+				"codigo": "quantidade_vitimas",
+				"descricao": "Quantidade de vitimas",
+				"tipo": "Num",
+				"tamanho": 10,
+				"valores_permitidos": ""
+			},
+			{
+				"codigo": "descricao",
+				"descricao": "Descrição do acidente",
+				"tipo": "Char",
+				"tamanho": 250,
+				"valores_permitidos": ""
+			},
+			{
+				"codigo": "tipo",
+				"descricao": "Tipo do acidente",
+				"tipo": "Char",
+				"tamanho": 20,
+				"valores_permitidos": ""
+			},
+			{
+				"codigo": "latitude",
+				"descricao": "Coordenadas geográfias em graus decimais - Latitude",
+				"tipo": "Num",
+				"tamanho": 20,
+				"valores_permitidos": ""
+			},
+			{
+				"codigo": "longitude",
+				"descricao": "Coordenadas geográfias em graus decimais - Longitude",
+				"tipo": "Num",
+				"tamanho": 20,
+				"valores_permitidos": ""
+			}
+			
+		]
+	}
+}
