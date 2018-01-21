@@ -87,15 +87,27 @@ def reshape_data(data):
      "veiculo":""}
     """
     itens = {}
+    
+    if('"' in data): # if description or complement has "" and ; between text
+        cont = 0
+        for i in data:
+            if(i =='"'):
+                cont+=1
+        if(cont == 2):
+            descricao = data.split('"')
+            descricao[1] = descricao[1].replace(";", "")
+            itens["descricao"] = descricao[1]
+            new = "".join(descricao)
+            new = new.split(";")
+        else:
+            new = data.split('"')
+            new[1] = new[1].replace(";", "")
+            new[3] = new[3].replace(";", "")
+            new = ''.join(new)
+            new = new.split(";")
+            itens["descricao"] = new[9]
 
-    if('"' in data):
-        descricao = data.split('"')
-        descricao[1] = descricao[1].replace(";", "")
-        itens["descricao"] = descricao[1]
-        new = "".join(descricao)
-        new = new.split(";")
-
-    else:
+    else: # general case
         new = data.split(";")
         itens["descricao"] = new[9]
 
@@ -130,6 +142,10 @@ def get_data(data):
 
     for line in data:
         todas_ocorrencias.append(reshape_data(line))
+        
+    
+    for i, ocorrencia in enumerate(todas_ocorrencias):
+        print(i, ocorrencia["veiculo"])
         
     
     return acidentes_por_data, acidentes_por_tipo, acidentes_por_quantidade_de_feridos, acidentes_por_local
