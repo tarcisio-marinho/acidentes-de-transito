@@ -60,29 +60,43 @@ def search(desc, tipo="data", numero=10):
 
 
 
+"""
+    data = {"21/03/2016": ["acidente1", "acidente2"]} -> pode ver cada detalhe de cada acidente
+
+    tipo = {"batida":["acidente1", "acidente2"], "colisao" : ["acidente3", "acidente4"]}
+
+    feridos = {1:["acidente1", "acidente2"], 2: ["acidente3"]}
+
+    local = {"boa viagem" : ["acidente1", "acidente2"]}
+
+"""
 
 def get_data(data):
-
-    """
-
-        data = {"21/03/2016": ["acidente1", "acidente2"]} -> pode ver cada detalhe de cada acidente
-
-        tipo = {"batida":["acidente1", "acidente2"], "colisao" : ["acidente3", "acidente4"]}
-
-        feridos = {1:["acidente1", "acidente2"], 2: ["acidente3"]}
-
-        local = {"boa viagem" : ["acidente1", "acidente2"]}
-    
-    """
 
     acidentes_por_data = {}
     acidentes_por_tipo = {}
     acidentes_por_quantidade_de_feridos = {}
     acidentes_por_local = {}
 
+
     data = data.split("\n")
     for line in data:
-        print(line)
+        itens = {}
+        new = line.split(";")
+        itens["latitude"] = new[1]
+        itens["longitude"] = new[0]
+        itens["data"] = new[2]
+        itens["hora"] = new[3]
+        itens["bairro"] = new[4]
+        itens["endereco"] = new[5]
+        itens["complemento"] = new[6]
+        itens["ocorrencia"] = new[7]
+        itens["qtd_vitimas"] = new[8]
+        itens["descricao"] = new[9]
+        itens["veiculo"] = new[10]
+        print(itens)
+
+
         time.sleep(2)
         
 
