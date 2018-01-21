@@ -82,7 +82,21 @@ def get_data(data):
     data = data.split("\n")
     for line in data:
         itens = {}
-        new = line.split(";")
+
+
+        if('"' in line):
+            descricao = line.split('"')
+            descricao[1] = descricao[1].replace(";", "")
+            itens["descricao"] = descricao[1]
+            new = "".join(descricao)
+            new = new.split(";")
+
+
+        else:
+            
+            new = line.split(";")
+            itens["descricao"] = new[9]
+
         itens["latitude"] = new[1]
         itens["longitude"] = new[0]
         itens["data"] = new[2]
@@ -91,8 +105,7 @@ def get_data(data):
         itens["endereco"] = new[5]
         itens["complemento"] = new[6]
         itens["ocorrencia"] = new[7]
-        itens["qtd_vitimas"] = new[8]
-        itens["descricao"] = new[9]
+        itens["qtd_vitimas"] = new[8]    
         itens["veiculo"] = new[10]
         print(itens)
 
