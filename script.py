@@ -99,7 +99,8 @@ def get_data(data):
     todas_ocorrencias = []
     
     data = data.split("\n")
-    
+    data.remove("")
+    print(data)
     for line in data:
         #todas_ocorrencias.append(reshape_data(line))
         itens = {}
@@ -129,9 +130,7 @@ def get_data(data):
             itens["qtd_vitimas"] = new[8]    
         itens["veiculo"] = new[10]
         todas_ocorrencias.append(itens)
-        
-        print(itens)
-        time.sleep(0.5)
+        #print(itens)
         
     
     return acidentes_por_data, acidentes_por_tipo, acidentes_por_quantidade_de_feridos, acidentes_por_local
