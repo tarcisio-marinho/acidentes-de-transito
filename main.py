@@ -1,3 +1,5 @@
+from mining import *
+
 
 def search(desc, tipo="data", numero=10):
     if(not tipo):
@@ -41,5 +43,5 @@ if __name__ == "__main__":
         f.readline() # ignore first line
         dados = f.read()
 
-    por_data, por_tipo, por_qtd_feridos, por_local = get_data(dados)
+    por_bairro, por_data, por_qtd_feridos, por_veiculo = get_data(dados)
     #menu()

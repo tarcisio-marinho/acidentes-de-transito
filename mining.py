@@ -1,4 +1,3 @@
-import time
 
 # metadados = "data/metadata/acidentes-de-transito-com-vitimas.json"
 
@@ -100,5 +99,4 @@ def get_data(data):
             acidentes_por_veiculo[ocorrencia["veiculo"]].append(ocorrencia)
 
 
-    return acidentes_por_bairro, acidentes_por_data, acidentes_por_quantidade_de_feridos,
-           acidentes_por_veiculo
+    return acidentes_por_bairro, acidentes_por_data, acidentes_por_quantidade_de_feridos, acidentes_por_veiculo
