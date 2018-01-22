@@ -65,7 +65,7 @@ def reshape_data(data):
             new = new.split(";")
             itens["descricao"] = new[9]
 
-    else: # general casehttps://www.google.com.br/maps/search/-8.1100463,+-34.9366951?sa=X&ved=0ahUKEwj8wsmc--fYAhVJkZAKHToBCkgQ8gEIJzAA
+    else: # general case
         new = data.split(";")
         itens["descricao"] = new[9]
 
@@ -76,25 +76,14 @@ def reshape_data(data):
     itens["endereco"] = new[5]
     itens["complemento"] = new[6]
     itens["ocorrencia"] = new[7]
-    if(new[8] == 'F' or new[8] == "f"):
+    if(new[8] == 'F' or new[8] == "f" or new[8] == "-" or new[8] == "'''"):
         itens["qtd_vitimas"] = 0
     else:
-        itens["qtd_vitimas"] = new[8]    
+        itens["qtd_vitimas"] = int(new[8]) 
     itens["veiculo"] = new[10]
 
     return itens
 
-
-"""
-    data = {"21/03/2016": ["acidente1", "acidente2"]} -> pode ver cada detalhe de cada acidente
-
-    tipo = {"batida":["acidente1", "acidente2"], "colisao" : ["acidente3", "acidente4"]}
-
-    feridos = {1:["acidente1", "acidente2"], 2: ["acidente3"]}
-
-    local = {"boa viagem" : ["acidente1", "acidente2"]}
-
-"""
 
 def get_data(data):
 
@@ -113,9 +102,46 @@ def get_data(data):
         todas_ocorrencias.append(reshape_data(line))
         
     
+    # bairro
     for ocorrencia in todas_ocorrencias: 
-        print(ocorrencia)
+        if(ocorrencia["bairro"] not in acidentes_por_bairro):
+            acidentes_por_bairro[ocorrencia["bairro"]] = []
+            acidentes_por_bairro[ocorrencia["bairro"]].append(ocorrencia)
+        else:
+            acidentes_por_bairro[ocorrencia["bairro"]].append(ocorrencia)
 
+    # data
+    for ocorrencia in todas_ocorrencias:
+        if(ocorrencia["data"] not in acidentes_por_data):
+            acidentes_por_data[ocorrencia["data"]] = []
+            acidentes_por_data[ocorrencia["data"]].append(ocorrencia)
+        else:
+            acidentes_por_data[ocorrencia["data"]].append(ocorrencia)
+    
+    # qtd_feridos
+    for ocorrencia in todas_ocorrencias:
+        if(ocorrencia["qtd_vitimas"] not in acidentes_por_quantidade_de_feridos):
+            acidentes_por_quantidade_de_feridos[ocorrencia["qtd_vitimas"]] = []
+            acidentes_por_quantidade_de_feridos[ocorrencia["qtd_vitimas"]].append(ocorrencia)
+        else:
+            acidentes_por_quantidade_de_feridos[ocorrencia["qtd_vitimas"]].append(ocorrencia)
+    
+    
+# tipo
+
+    """
+        {"descricao":""
+        "latitude":""
+        "longitude":""
+        "data":""
+        "hora":""
+        "bairro":""
+        "endereco":""
+        "complemento":""
+        "ocorrencia":""
+        "qtd_vitmas":""
+        "veiculo":""}
+    """
 
     return acidentes_por_data, acidentes_por_tipo, acidentes_por_quantidade_de_feridos, acidentes_por_local
 
