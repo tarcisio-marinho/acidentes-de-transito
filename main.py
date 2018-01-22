@@ -1,14 +1,13 @@
 from mining import *
 
-
 def search(desc, tipo="data", numero=10):
     if(not tipo):
         pass
 
-    elif(tipo == "tipo_de_acidente"):
+    elif(tipo == "tipo"):
         pass
     
-    elif(tipo == "qtd_pessoas_feridas"):
+    elif(tipo == "feridos"):
         pass
 
 
@@ -18,27 +17,14 @@ def search(desc, tipo="data", numero=10):
 
 def menu():
     while True:
-        pass
+        pesquisa = input("Pesquisar por: ")
+        search(pesquisa)
 
-    search()
 
 
 if __name__ == "__main__":
     path = "data/acidentes-2016.csv"
-    
-    """
-        {"descricao":""
-        "latitude":""
-        "longitude":""
-        "data":""
-        "hora":""
-        "bairro":""
-        "endereco":""
-        "complemento":""
-        "ocorrencia":""
-        "qtd_vitmas":""
-        "veiculo":""}
-    """
+
     with open(path) as f:
         f.readline() # ignore first line
         dados = f.read()
