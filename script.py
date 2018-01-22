@@ -65,12 +65,11 @@ def reshape_data(data):
             new = new.split(";")
             itens["descricao"] = new[9]
 
-    else: # general case
+    else: # general casehttps://www.google.com.br/maps/search/-8.1100463,+-34.9366951?sa=X&ved=0ahUKEwj8wsmc--fYAhVJkZAKHToBCkgQ8gEIJzAA
         new = data.split(";")
         itens["descricao"] = new[9]
 
-    itens["latitude"] = new[1]
-    itens["longitude"] = new[0]
+    itens["link"] = google_maps_search(new[1], new[0])
     itens["data"] = new[2]
     itens["hora"] = new[3]
     itens["bairro"] = new[4]
@@ -103,6 +102,7 @@ def get_data(data):
     acidentes_por_tipo = {}
     acidentes_por_quantidade_de_feridos = {}
     acidentes_por_local = {}
+    acidentes_por_bairro = {}
     
     todas_ocorrencias = []
     
@@ -113,20 +113,10 @@ def get_data(data):
         todas_ocorrencias.append(reshape_data(line))
         
     
-    for i, ocorrencia in enumerate(todas_ocorrencias):
-        print(i, ocorrencia["qtd_vitimas"])
-        """
-    {"descricao":""
-     "latitude":""
-     "longitude":""
-     "data":""
-     "hora":""
-     "bairro":""
-     "endereco":""
-     "complemento":""
-     "ocorrencia":""
-     "qtd_vitmas":""
-     "veiculo":""}"""
+    for ocorrencia in todas_ocorrencias: 
+        print(ocorrencia)
+
+
     return acidentes_por_data, acidentes_por_tipo, acidentes_por_quantidade_de_feridos, acidentes_por_local
 
 
