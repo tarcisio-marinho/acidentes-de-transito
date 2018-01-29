@@ -6,7 +6,16 @@ def search(info, tipo, data, numero=10):
     if(tipo == "data"):
         if(info in data):
             lista = data[info]
-            print(lista)
+            i = 0
+            for acidente in lista:
+                print("data: {}\nDescrição: {}\nVeiculo: {}\nComplemento: {}\nOcorrencia: {}\nBairro: {}\nHora:{}\nendereco: {}\nMaps:{}\n"
+                       .format(acidente["data"], acidente["descricao"], acidente["veiculo"], acidente["complemento"], acidente["ocorrencia"], acidente["bairro"], 
+                       acidente["hora"], acidente["endereco"], acidente["link"]))
+
+                i+=1
+                if(i == numero):
+                    break
+
         else:
             print("Data inexistente")
             
