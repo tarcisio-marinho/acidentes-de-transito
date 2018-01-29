@@ -2,17 +2,34 @@ import time
 from mining import *
 
 def search(info, tipo, data, numero=10):
+
     if(tipo == "data"):
-        pass
-
+        if(info in data):
+            lista = data[info]
+            print(lista)
+        else:
+            print("Data inexistente")
+            
     elif(tipo == "bairro"):
+        if(info in data):
+            lista = data[info]
+            print(lista)
+        else:
+            print("Bairro inexistente")
 
-
-    elif(tipo == "tipo"):
-        pass
+    elif(tipo == "veiculo"):
+        if(info in data):
+            lista = data[info]
+            print(lista)
+        else:
+            print("Veiculo inexistente")
     
     elif(tipo == "feridos"):
-        pass
+        if(info in data):
+            lista = data[info]
+            print(lista)
+        else:
+            print("Quantidade de feridos inexistente")
 
 
 def menu(dados):
@@ -40,6 +57,12 @@ def menu(dados):
                 print(quantidade)
 
             escolha = input("Escolha a quantidade de feridos: ")
+            try:
+                escolha = int(escolha)
+            except ValueError:
+                print("Digite apenas números")
+                continue
+
             search(escolha, "feridos", feridos)
 
         elif(pesquisa == "veiculo"):
@@ -50,7 +73,8 @@ def menu(dados):
             search(escolha, "veiculo", veiculo)
 
 
-def read_file():
+def read_file(): 
+
     path = "data/acidentes-2016.csv"
 
     with open(path) as f:
