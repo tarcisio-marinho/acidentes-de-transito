@@ -22,21 +22,48 @@ def search(info, tipo, data, numero=10):
     elif(tipo == "bairro"):
         if(info in data):
             lista = data[info]
-            print(lista)
+            i = 0
+            for acidente in lista:
+                print("data: {}\nDescrição: {}\nVeiculo: {}\nComplemento: {}\nOcorrencia: {}\nBairro: {}\nHora:{}\nendereco: {}\nMaps:{}\n"
+                       .format(acidente["data"], acidente["descricao"], acidente["veiculo"], acidente["complemento"], acidente["ocorrencia"], acidente["bairro"], 
+                       acidente["hora"], acidente["endereco"], acidente["link"]))
+
+                i+=1
+                if(i == numero):
+                    break
+
         else:
             print("Bairro inexistente")
 
     elif(tipo == "veiculo"):
         if(info in data):
             lista = data[info]
-            print(lista)
+            i = 0
+            for acidente in lista:
+                print("data: {}\nDescrição: {}\nVeiculo: {}\nComplemento: {}\nOcorrencia: {}\nBairro: {}\nHora:{}\nendereco: {}\nMaps:{}\n"
+                       .format(acidente["data"], acidente["descricao"], acidente["veiculo"], acidente["complemento"], acidente["ocorrencia"], acidente["bairro"], 
+                       acidente["hora"], acidente["endereco"], acidente["link"]))
+
+                i+=1
+                if(i == numero):
+                    break
+
         else:
             print("Veiculo inexistente")
     
     elif(tipo == "feridos"):
         if(info in data):
             lista = data[info]
-            print(lista)
+            i = 0
+            for acidente in lista:
+                print("data: {}\nDescrição: {}\nVeiculo: {}\nComplemento: {}\nOcorrencia: {}\nBairro: {}\nHora:{}\nendereco: {}\nMaps:{}\n"
+                       .format(acidente["data"], acidente["descricao"], acidente["veiculo"], acidente["complemento"], acidente["ocorrencia"], acidente["bairro"], 
+                       acidente["hora"], acidente["endereco"], acidente["link"]))
+
+                i+=1
+                if(i == numero):
+                    break
+                
         else:
             print("Quantidade de feridos inexistente")
 
